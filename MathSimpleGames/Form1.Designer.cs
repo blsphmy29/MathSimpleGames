@@ -32,7 +32,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuPanel
@@ -44,7 +46,7 @@
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(200, 450);
+            this.menuPanel.Size = new System.Drawing.Size(200, 761);
             this.menuPanel.TabIndex = 0;
             // 
             // button1
@@ -56,6 +58,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Dashboard";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -70,23 +73,36 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(200, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(600, 450);
+            this.mainPanel.Size = new System.Drawing.Size(784, 761);
             this.mainPanel.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(330, 347);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 31);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Dashboard";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(984, 761);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.menuPanel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuPanel.ResumeLayout(false);
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -97,6 +113,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel menuPanel;
+        private System.Windows.Forms.Label label1;
     }
 }
 
