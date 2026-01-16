@@ -12,8 +12,8 @@ namespace MathSimpleGames
 {
     public partial class Form1 : Form
     {
-        int secretNumber;
-        Random random = new Random();
+            int secretNumber;
+            Random random = new Random();
 
         public Form1()
         {
@@ -30,9 +30,9 @@ namespace MathSimpleGames
             // buttonGuess
             // 
             this.buttonGuess.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGuess.Location = new System.Drawing.Point(12, 245);
+            this.buttonGuess.Location = new System.Drawing.Point(12, 98);
             this.buttonGuess.Name = "buttonGuess";
-            this.buttonGuess.Size = new System.Drawing.Size(356, 100);
+            this.buttonGuess.Size = new System.Drawing.Size(250, 100);
             this.buttonGuess.TabIndex = 0;
             this.buttonGuess.Text = "Guess";
             this.buttonGuess.UseVisualStyleBackColor = true;
@@ -40,10 +40,11 @@ namespace MathSimpleGames
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.MaxLength = 100;
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(356, 100);
+            this.richTextBox1.Size = new System.Drawing.Size(250, 80);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
@@ -51,7 +52,7 @@ namespace MathSimpleGames
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(380, 357);
+            this.ClientSize = new System.Drawing.Size(274, 207);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.buttonGuess);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -68,7 +69,7 @@ namespace MathSimpleGames
         {
             int guess;
 
-          
+            if (!int.TryParse(richTextBox1.Text, out guess))
             {
                 MessageBox.Show("Please enter a valid number between 1 and 100.");
                 return;
