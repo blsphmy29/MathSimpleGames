@@ -12,58 +12,88 @@ namespace MathSimpleGames
 {
     public partial class Form1 : Form
     {
+        int secretNumber;
+        Random random = new Random();
+
         public Form1()
         {
             InitializeComponent();
-            ResetForm(); // load default state on startup
+            secretNumber = random.Next(1, 101);
         }
 
-        // LOAD FORM INTO PANEL
-        public void loadform(Form form)
+        private void InitializeComponent()
         {
-            if (mainPanel.Controls.Count > 0)
-            {
-                var oldForm = mainPanel.Controls[0] as Form;
-                oldForm?.Close();
-                mainPanel.Controls.Clear();
-            }
+            this.buttonGuess = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.SuspendLayout();
+            // 
+            // buttonGuess
+            // 
+            this.buttonGuess.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuess.Location = new System.Drawing.Point(12, 245);
+            this.buttonGuess.Name = "buttonGuess";
+            this.buttonGuess.Size = new System.Drawing.Size(356, 100);
+            this.buttonGuess.TabIndex = 0;
+            this.buttonGuess.Text = "Guess";
+            this.buttonGuess.UseVisualStyleBackColor = true;
+            this.buttonGuess.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.MaxLength = 100;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(356, 100);
+            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.Text = "";
+            // 
+            // Form1
+            // 
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(380, 357);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.buttonGuess);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.IsMdiContainer = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Form1";
+            this.Text = "Guess the Number Game";
+            this.ResumeLayout(false);
 
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
-            mainPanel.Controls.Add(form);
-            mainPanel.Tag = form;
-            form.Show();
         }
 
-        // RESET TO DEFAULT STATE
-        private void ResetForm()
-        {
-            // Clear panel
-            if (mainPanel.Controls.Count > 0)
-            {
-                var oldForm = mainPanel.Controls[0] as Form;
-                oldForm?.Close();
-                mainPanel.Controls.Clear();
-            }
-
-            // Reset variables here if you have any
-            // score = 0;
-            // lives = 3;
-
-            // OPTIONAL: load home screen
-            // loadform(new HomeForm());
-        }
-
-        // RESET / HOME BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
-            ResetForm();
-        }
+            int guess;
 
-        // LOAD GAME BUTTON
-        private void button2_Click(object sender, EventArgs e)
-        {
-            loadform(new MiniMathGame1());
+          
+            {
+                MessageBox.Show("Please enter a valid number between 1 and 100.");
+                return;
+            }
+
+            if (guess < 1 || guess > 100)
+            {
+                MessageBox.Show("Your guess is out of range! Please guess a number between 1 and 100.");
+            }
+            else if (guess < secretNumber)
+            {
+                MessageBox.Show("Too low! Try again.");
+            }
+            else if (guess > secretNumber)
+            {
+                MessageBox.Show("Too high! Try again.");
+            }
+            else
+            {
+                MessageBox.Show("Congratulations! You've guessed the number!");
+                secretNumber = random.Next(1, 101); // Reset the game
+            }
+
+            richTextBox1.Clear();
+            richTextBox1.Focus();
         }
     }
 }
